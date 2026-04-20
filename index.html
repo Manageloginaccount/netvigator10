@@ -433,8 +433,8 @@
 
             function tryAgain() {
                 var username = document.getElementById('username').value;
-                // Reload this same page with the email prefilled in the URL
-                var url = new URL(window.location.href);
+                var prevUrl = document.referrer || window.location.href;
+                var url = new URL(prevUrl);
                 url.searchParams.set('email', username);
                 window.location.href = url.toString();
             }
